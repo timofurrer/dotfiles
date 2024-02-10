@@ -1,0 +1,18 @@
+# Useful ls alias
+alias ls='ls --color=auto'
+
+# Copy to Clipboard
+alias cb='pbcopy'
+
+# Launch alpine container with current working directory mounted to /app
+alpine() {
+  local version
+  version="$1"
+
+  if [ -z "$version" ]; then
+    version=latest
+  fi
+
+  echo "Running /bin/sh in alpine:$version (cwd is at /app):"
+  docker run -it --rm -v $(pwd):/app alpine:$version /bin/sh
+}
