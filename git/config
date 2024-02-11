@@ -1,0 +1,17 @@
+[user]
+	name = Timo Furrer
+	email = tuxtimo@gmail.com
+	signingkey = 1E4DF6E3A880927D
+
+[alias]
+	st = status
+	co = checkout
+	br = branch
+
+[includeIf "gitdir:~/work/gitlab/"]
+        path = ~/.gitlab.gitconfig
+[init]
+	defaultBranch = main
+
+[gpg]
+	format = ssh
