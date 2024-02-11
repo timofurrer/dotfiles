@@ -15,6 +15,12 @@
 ##################################
 
 #: Configure zsh {{{
+# Completion
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+
+# History
 setopt no_share_history
 unsetopt share_history
 # }}}
@@ -113,6 +119,10 @@ export MANPATH="/opt/homebrew/opt/gnu-sed/libexec/gnuman:$MANPATH"
 # GNU tools > macOS (e.g. ls, ...)
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
+#: }}}
+
+#: Kittens to PATH {{{
+export PATH="$HOME/.config/kitty/kittens:$PATH"
 #: }}}
 
 #: Load aliases {{{

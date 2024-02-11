@@ -1,5 +1,8 @@
 # Useful ls alias
-alias ls='ls --color=auto'
+alias ls='ls --hyperlink=auto --color=auto'
+
+# Kitty aliases
+alias icat='kitten icat'
 
 # Copy to Clipboard
 alias cb='pbcopy'
