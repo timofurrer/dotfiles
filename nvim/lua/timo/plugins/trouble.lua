@@ -14,6 +14,8 @@ return {
       { "<leader>xd", function() require("trouble").toggle("document_diagnostics") end, desc = "Toggle Document Diagnostics" },
       { "<leader>xq", function() require("trouble").toggle("quickfix") end, desc = "Toggle Quickfix" },
       { "<leader>xl", function() require("trouble").toggle("loclist") end, desc = "Toggle Loclist" },
+      { "<leader>xn", function() require("trouble").next({skip_groups = true, jump = true}) end, desc = "Jump to next trouble item"},
+      { "<leader>xp", function() require("trouble").previous({skip_groups = true, jump = true}) end, desc = "Jump to previous trouble item"},
     },
   }
 }

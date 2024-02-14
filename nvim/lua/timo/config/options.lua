@@ -7,6 +7,11 @@ opt.shiftwidth = 2     -- Indentation size
 opt.smartindent = true -- Automatically indent
 opt.tabstop = 2        -- Number of spaces per tab
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  command = "setlocal shiftwidth=4 tabstop=4"
+})
+
 -- Mouse
 opt.mouse = "a" -- Enable mouse mode
 

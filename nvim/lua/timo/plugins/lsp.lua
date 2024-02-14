@@ -91,6 +91,18 @@ return {
       }
       local lspconfig = require("lspconfig")
 
+      local helmlsCfg = {}
+      for k, v in pairs(defaultCfg) do
+        helmlsCfg[k] =v
+      end
+      helmlsCfg["settings"] = {
+        ["helm-ls"] = {
+          yamlls = {
+            path = "yaml-language-server",
+          },
+        },
+      }
+
       local yamllsCfg = {}
       for k, v in pairs(defaultCfg) do
         yamllsCfg[k] = v
