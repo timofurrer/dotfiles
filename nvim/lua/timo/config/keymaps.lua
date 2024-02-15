@@ -7,6 +7,8 @@ map("n", "<leader>L", function() require("lazy").show() end, "Show Lazy")
 
 -- Diagnostics
 map("n", "gx", vim.diagnostic.open_float, "Show diagnostics under cursor")
+map("n", "[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
+map("n", "d]", vim.diagnostic.goto_next, "Go to next diagnostic message")
 
 -- Buffers
 map("n", "<leader><left>", "<cmd>bprevious<cr>", "Switch to buffer to the left")

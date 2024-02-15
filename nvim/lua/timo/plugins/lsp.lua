@@ -120,7 +120,7 @@ return {
       lspconfig["lua_ls"].setup(defaultCfg)
       lspconfig["golangci_lint_ls"].setup(defaultCfg)
       lspconfig["gopls"].setup(defaultCfg)
-      lspconfig["helm_ls"].setup(defaultCfg)
+      lspconfig["helm_ls"].setup(helmlsCfg)
       lspconfig["hls"].setup(defaultCfg)
       lspconfig["jsonls"].setup(defaultCfg)
       lspconfig["jsonnet_ls"].setup(defaultCfg)

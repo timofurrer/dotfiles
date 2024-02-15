@@ -14,8 +14,14 @@ return {
       { "<leader>ff", function() require("telescope.builtin").find_files({ hidden = true, file_ignore_patterns = file_ignore_patterns }) end, desc = "Find Files" },
       { "<leader>fg", function() require("telescope.builtin").git_files() end, desc = "Find Git Files" },
       { "<leader>fG", function() require("telescope.builtin").live_grep() end, desc = "Live Grep" },
+      { "<leader>f/", function() require("telescope.builtin").live_grep {
+          grep_open_files = true,
+          prompt_title = 'Live Grep in Open Files',
+        }
+      end, desc = "Grep in Open Files" },
       { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
       { "<leader>ft", function() require("telescope.builtin").treesitter() end, desc = "Treesitter" },
+      { "<leader>fd", function() require("telescope.builtin").diagnostics() end, desc = "Find in diagnostics" },
     },
   },
   -- Extensions
