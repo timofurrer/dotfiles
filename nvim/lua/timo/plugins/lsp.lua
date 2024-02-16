@@ -66,12 +66,13 @@ return {
         lsp_map("<leader>ld", vim.lsp.buf.type_definition, bufnr, "Type definition")
         lsp_map("<leader>ls", require("telescope.builtin").lsp_document_symbols, bufnr, "Document symbols")
 
-        lsp_map("gd", vim.lsp.buf.definition, bufnr, "Goto Definition")
+        lsp_map("gd", require("telescope.builtin").lsp_definitions, bufnr, "Goto Definition")
         lsp_map("gr", require("telescope.builtin").lsp_references, bufnr, "Goto References")
-        lsp_map("gI", vim.lsp.buf.implementation, bufnr, "Goto Implementation")
+        lsp_map("gI", require("telescope.builtin").lsp_implementations, bufnr, "Goto Implementation")
         lsp_map("K", vim.lsp.buf.hover, bufnr, "Hover Documentation")
         lsp_map("gD", vim.lsp.buf.declaration, bufnr, "Goto Declaration")
         lsp_map("gH", vim.lsp.buf.hover, bufnr, "Hover")
+        lsp_map("gX", require("telescope.builtin").diangostics, bufnr, "Show diagnostics for open buffer")
 
         -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)

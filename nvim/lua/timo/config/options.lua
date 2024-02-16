@@ -36,6 +36,8 @@ opt.undolevels = 10000
 
 -- Show hidden characters
 opt.list = true
+-- tab symbol is: https://symbl.cc/en/2911/
+opt.listchars = { tab = '⤑ ', trail = '.' }
 
 -- Scrolling
 opt.scrolloff = 8
