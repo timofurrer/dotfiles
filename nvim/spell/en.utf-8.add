@@ -56,3 +56,9 @@ stdlib
 keepalive
 KeepAlive
 tls
+myself
+myself
+CRD
+goroutine
+runnable
+lsp

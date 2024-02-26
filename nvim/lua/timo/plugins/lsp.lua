@@ -26,6 +26,8 @@ return {
           "jsonls",
           "jsonnet_ls",
           "marksman", -- markdown
+          "pylsp", -- python-lsp
+          "pyright",
           "solargraph", -- For Ruby and especially GitLab development, since they have configs for it.
           "terraformls",
           "yamlls",
@@ -126,6 +128,8 @@ return {
       lspconfig["jsonls"].setup(defaultCfg)
       lspconfig["jsonnet_ls"].setup(defaultCfg)
       lspconfig["marksman"].setup(defaultCfg)
+      lspconfig["pylsp"].setup(defaultCfg)
+      lspconfig["pyright"].setup(defaultCfg)
       lspconfig["solargraph"].setup(defaultCfg)
       lspconfig["terraformls"].setup(defaultCfg)
       lspconfig["yamlls"].setup(yamllsCfg)
