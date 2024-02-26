@@ -1,17 +1,56 @@
+# vim:ft=gitconfig
+
 [user]
 	name = Timo Furrer
 	email = tuxtimo@gmail.com
 	signingkey = 1E4DF6E3A880927D
 
+[gpg]
+	format = ssh
+
 [alias]
 	st = status
+	sw = switch
 	co = checkout
 	br = branch
 
 [includeIf "gitdir:~/work/gitlab/"]
-        path = ~/.gitlab.gitconfig
+	path = ~/.gitlab.gitconfig
+
 [init]
 	defaultBranch = main
 
-[gpg]
-	format = ssh
+[pull]
+	rebase = true
+
+[merge]
+	conflictstyle = zdiff3
+
+[rebase]
+	autosquash = true
+
+[push]
+	autoSetupRemote = true
+
+[commit]
+	verbose = true
+
+[rerere]
+	enabled = true
+
+[core]
+	pager = delta
+	editor = nvim
+
+[interactive]
+	diffFilter = delta
+
+[diff]
+	algorithm = histogram
+	colorMoved = default
+
+[branch]
+	sort = -committerdate
+
+[log]
+	date = iso

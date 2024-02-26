@@ -12,6 +12,11 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal shiftwidth=4 tabstop=4"
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitconfig",
+  command = "setlocal shiftwidth=2 tabstop=2 noexpandtab"
+})
+
 -- Mouse
 opt.mouse = "a" -- Enable mouse mode
 
