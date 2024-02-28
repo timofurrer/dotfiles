@@ -30,6 +30,7 @@ return {
           "pyright",
           "solargraph", -- For Ruby and especially GitLab development, since they have configs for it.
           "terraformls",
+          "tsserver",
           "yamlls",
         },
       })

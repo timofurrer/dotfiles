@@ -43,7 +43,7 @@
 	editor = nvim
 
 [interactive]
-	diffFilter = delta
+	diffFilter = delta --color-only
 
 [diff]
 	algorithm = histogram
@@ -54,3 +54,6 @@
 
 [log]
 	date = iso
+
+[delta]
+	navigate = true
