@@ -7,6 +7,10 @@ alias icat='kitten icat'
 # Copy to Clipboard
 alias cb='pbcopy'
 
+# Tmuxinator
+alias tm='tmuxinator'
+alias ts='tmuxinator start'
+
 # Launch alpine container with current working directory mounted to /app
 alpine() {
   local version

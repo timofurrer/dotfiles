@@ -86,13 +86,18 @@ zinit light trapd00r/LS_COLORS
 #: }}}
 
 #: Configure fzf {{{
-zinit pack"default+keys" for fzf
+# zinit pack"default+keys" for fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #: }}}
 
 #: Configure asdf {{{
 . $(brew --prefix asdf)/libexec/asdf.sh
 # ASDF: read go version from go.mod / go.sum file
 export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+#: }}}
+
+#: Configure zoxide {{{
+eval "$(zoxide init zsh)"
 #: }}}
 
 #: Configure arbitrary tooling {{{
