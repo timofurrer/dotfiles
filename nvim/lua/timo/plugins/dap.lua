@@ -41,6 +41,8 @@ return {
       { "<leader>di", function() require("dap").step_into() end, desc = "Step Into (<F7>)" },
       { "<leader>do", function() require("dap").step_over() end, desc = "Step Over (<F8>)" },
       { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint (<F9>)" },
+      { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Set conditional breakpoint" },
+      { "<leader>dlp", function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, desc = "Set breakpoing with log point message" },
     },
   },
   -- UI enhancements
