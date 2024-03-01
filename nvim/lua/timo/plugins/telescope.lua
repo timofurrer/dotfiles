@@ -22,6 +22,7 @@ return {
       { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
       { "<leader>ft", function() require("telescope.builtin").treesitter() end, desc = "Treesitter" },
       { "<leader>fd", function() require("telescope.builtin").diagnostics() end, desc = "Find in diagnostics" },
+      { "<leader>fs", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Fuzzy find in current buffer" },
     },
   },
   -- Extensions
