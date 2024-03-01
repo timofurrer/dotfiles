@@ -57,5 +57,5 @@
 
 [delta]
 	navigate = true
-	light = true
-	theme = gruvbox-light
+	; light = true
+	; theme = gruvbox-light
