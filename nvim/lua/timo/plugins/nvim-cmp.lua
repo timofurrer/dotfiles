@@ -11,6 +11,7 @@ return {
     "hrsh7th/cmp-path",
     -- "hrsh7th/cmp-cmdline",
     "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
   },
   config = function()
     local cmp = require("cmp")
@@ -26,6 +27,10 @@ return {
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-y>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
+        }),
         ["<CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = false,
