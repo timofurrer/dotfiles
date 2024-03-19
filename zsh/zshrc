@@ -72,10 +72,12 @@ setopt promptsubst
 # set temporary prompt until theme is loaded
 PS1="[waiting for prompt] READY >"
 # load actual prompt
-zinit wait'!' lucid for \
-    OMZL::prompt_info_functions.zsh \
-    OMZT::crunch
-    # OMZT::gnzh # <-- nice alternative theme
+# zinit wait'!' lucid for \
+#     OMZL::prompt_info_functions.zsh \
+#     OMZT::crunch
+#     # OMZT::gnzh # <-- nice alternative theme
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
 #: }}}
 
 #: LS colors {{{
@@ -87,13 +89,6 @@ zinit light trapd00r/LS_COLORS
 
 #: Configure fzf {{{
 zinit pack"default+keys" for fzf
-# Rose Pine Dawn Theme for FZF
-export FZF_DEFAULT_OPTS="
-	--color=fg:#797593,bg:#faf4ed,hl:#d7827e
-	--color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e
-	--color=border:#dfdad9,header:#286983,gutter:#faf4ed
-	--color=spinner:#ea9d34,info:#56949f,separator:#dfdad9
-	--color=pointer:#907aa9,marker:#b4637a,prompt:#797593"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #: }}}
