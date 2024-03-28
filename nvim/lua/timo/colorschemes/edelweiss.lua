@@ -1,14 +1,14 @@
--- See https://github.com/folke/tokyonight.nvim
+-- See https://github.com/timofurrer/edelweiss
 return {
-  "folke/tokyonight.nvim",
+  -- "timofurrer/edelweiss",
+  dir = "/Users/timo/work/edelweiss",
   lazy = false, -- make sure we load this during startup, because it's the main colorscheme
   priority = 1000, -- make sure to load this before all the other start plugins
   opts = {
-    -- style = "day",
   },
-  config = function(_, opts)
-    require("tokyonight").setup(opts)
+  config = function(plugin)
+    vim.opt.rtp:append(plugin.dir .. "/nvim")
     -- load the colorscheme
-    -- vim.cmd([[colorscheme tokyonight]])
+    vim.cmd([[colorscheme edelweiss]])
   end
 }

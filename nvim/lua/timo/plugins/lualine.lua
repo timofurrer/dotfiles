@@ -4,7 +4,8 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-      theme = 'tokyonight',
+      -- theme = 'tokyonight',
+      theme = "edelweiss",
       sections = {
         lualine_c = {
           'filename',
