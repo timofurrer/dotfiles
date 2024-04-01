@@ -47,40 +47,42 @@ end
 -- adds ShowRubyDeps command to show dependencies in the quickfix list.
 -- add the `all` argument to show indirect dependencies as well
 local function add_ruby_deps_command(client, bufnr)
-    vim.api.nvim_buf_create_user_command(bufnr, "ShowRubyDeps",
-                                          function(opts)
+  vim.api.nvim_buf_create_user_command(bufnr, "ShowRubyDeps",
+    function(opts)
+      local params = vim.lsp.util.make_text_document_params()
 
-        local params = vim.lsp.util.make_text_document_params()
+      local showAll = opts.args == "all"
 
-        local showAll = opts.args == "all"
+      client.request("rubyLsp/workspace/dependencies", params,
+        function(error, result)
+          if error then
+            print("Error showing deps: " .. error)
+            return
+          end
 
-        client.request("rubyLsp/workspace/dependencies", params,
-                        function(error, result)
-            if error then
-                print("Error showing deps: " .. error)
-                return
+          local qf_list = {}
+          for _, item in ipairs(result) do
+            if showAll or item.dependency then
+              table.insert(qf_list, {
+                text = string.format("%s (%s) - %s",
+                  item.name,
+                  item.version,
+                  item.dependency),
+
+                filename = item.path
+              })
             end
+          end
 
-            local qf_list = {}
-            for _, item in ipairs(result) do
-                if showAll or item.dependency then
-                    table.insert(qf_list, {
-                        text = string.format("%s (%s) - %s",
-                                              item.name,
-                                              item.version,
-                                              item.dependency),
-
-                        filename = item.path
-                    })
-                end
-            end
-
-            vim.fn.setqflist(qf_list)
-            vim.cmd('copen')
+          vim.fn.setqflist(qf_list)
+          vim.cmd('copen')
         end, bufnr)
-    end, {nargs = "?", complete = function()
-        return {"all"}
-    end})
+    end, {
+      nargs = "?",
+      complete = function()
+        return { "all" }
+      end
+    })
 end
 
 return {
@@ -111,7 +113,7 @@ return {
           "jsonls",
           "jsonnet_ls",
           "marksman", -- markdown
-          "pylsp", -- python-lsp
+          "pylsp",    -- python-lsp
           "pyright",
           -- "solargraph", -- For Ruby and especially GitLab development, since they have configs for it.
           "ruby_ls",
@@ -183,7 +185,7 @@ return {
 
       local helmlsCfg = {}
       for k, v in pairs(defaultCfg) do
-        helmlsCfg[k] =v
+        helmlsCfg[k] = v
       end
       helmlsCfg["settings"] = {
         ["helm-ls"] = {
@@ -200,8 +202,10 @@ return {
       yamllsCfg["settings"] = {
         yaml = {
           schemas = {
-            ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "/.gitlab-ci.yml",
-            ["https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/raw/master/pkg/agentcfg/agentcfg_schemas/ConfigurationFile.json"] = "/.gitlab/agents/*/config.yaml",
+            ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] =
+            "/.gitlab-ci.yml",
+            ["https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/raw/master/pkg/agentcfg/agentcfg_schemas/ConfigurationFile.json"] =
+            "/.gitlab/agents/*/config.yaml",
           },
         },
       }
@@ -215,9 +219,21 @@ return {
         on_attach(client, buffer)
         setup_diagnostics(client, buffer)
         add_ruby_deps_command(client, buffer)
-      end,
+      end
 
-      lspconfig["lua_ls"].setup(defaultCfg)
+      local lualsCfg = {}
+      for k, v in pairs(defaultCfg) do
+        lualsCfg[k] = v
+      end
+      lualsCfg["settings"] = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          }
+        }
+      }
+
+      lspconfig["lua_ls"].setup(lualsCfg)
       lspconfig["golangci_lint_ls"].setup(defaultCfg)
       lspconfig["gopls"].setup(defaultCfg)
       lspconfig["helm_ls"].setup(helmlsCfg)
