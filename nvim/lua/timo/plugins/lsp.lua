@@ -105,11 +105,15 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "bashls",
+          "clangd",
+          "cssls",
           "lua_ls",
           "golangci_lint_ls",
           "gopls",
           "helm_ls",
           "hls",
+          "html",
+          -- "htmx", -- err'ed last time I wanted to try it out ...
           "jsonls",
           "jsonnet_ls",
           "marksman", -- markdown
@@ -117,6 +121,8 @@ return {
           "pyright",
           -- "solargraph", -- For Ruby and especially GitLab development, since they have configs for it.
           "ruby_ls",
+          "sqls",
+          "tailwindcss",
           "terraformls",
           "tsserver",
           "yamlls",
@@ -233,11 +239,33 @@ return {
         }
       }
 
+      --Enable (broadcasting) snippet capability for completion
+      local htmlCapabilities = vim.lsp.protocol.make_client_capabilities()
+      htmlCapabilities.textDocument.completion.completionItem.snippetSupport = true
+      local htmlCfg = {}
+      for k, v in pairs(defaultCfg) do
+        htmlCfg[k] = v
+      end
+      htmlCfg["capabilities"] = htmlCapabilities
+
+      --Enable (broadcasting) snippet capability for completion
+      local cssCapabilities = vim.lsp.protocol.make_client_capabilities()
+      cssCapabilities.textDocument.completion.completionItem.snippetSupport = true
+      local csslsCfg = {}
+      for k, v in pairs(defaultCfg) do
+        csslsCfg[k] = v
+      end
+      csslsCfg["capabilities"] = cssCapabilities
+
+      lspconfig["clangd"].setup(defaultCfg)
+      lspconfig["cssls"].setup(csslsCfg)
       lspconfig["lua_ls"].setup(lualsCfg)
       lspconfig["golangci_lint_ls"].setup(defaultCfg)
       lspconfig["gopls"].setup(defaultCfg)
       lspconfig["helm_ls"].setup(helmlsCfg)
       lspconfig["hls"].setup(defaultCfg)
+      lspconfig["html"].setup(htmlCfg)
+      -- lspconfig["htmx"].setup(defaultCfg)
       lspconfig["jsonls"].setup(defaultCfg)
       lspconfig["jsonnet_ls"].setup(defaultCfg)
       lspconfig["marksman"].setup(defaultCfg)
@@ -245,7 +273,9 @@ return {
       lspconfig["pyright"].setup(defaultCfg)
       -- lspconfig["solargraph"].setup(defaultCfg)
       lspconfig["ruby_ls"].setup(rubylsCfg)
+      lspconfig["sqls"].setup(defaultCfg)
       lspconfig["terraformls"].setup(defaultCfg)
+      lspconfig["tailwindcss"].setup(defaultCfg)
       lspconfig["yamlls"].setup(yamllsCfg)
     end,
   },

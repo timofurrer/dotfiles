@@ -9,7 +9,7 @@ opt.tabstop = 2        -- Number of spaces per tab
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "go",
-  command = "setlocal shiftwidth=4 tabstop=4"
+  command = "setlocal shiftwidth=4 tabstop=4 noexpandtab"
 })
 
 vim.api.nvim_create_autocmd("FileType", {
