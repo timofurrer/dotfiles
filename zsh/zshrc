@@ -110,7 +110,7 @@ eval "$(zoxide init zsh)"
 # 1Password / Glab
 source $HOME/.config/op/plugins.sh
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/timo/.rd/bin:$PATH"
+# export PATH="/Users/timo/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 # Created by `pipx` on 2023-04-12 19:06:58
 export PATH="$PATH:/Users/timo/.local/bin"
