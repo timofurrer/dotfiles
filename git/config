@@ -59,3 +59,5 @@
 	navigate = true
 	light = true
 	theme = gruvbox-light
+[http]
+	cookiefile = /Users/timo/.gitcookies

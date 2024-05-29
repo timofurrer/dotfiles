@@ -82,7 +82,7 @@ return {
         lsp_map("K", vim.lsp.buf.hover, bufnr, "Hover Documentation")
         lsp_map("gD", vim.lsp.buf.declaration, bufnr, "Goto Declaration")
         lsp_map("gH", vim.lsp.buf.hover, bufnr, "Hover")
-        lsp_map("gX", require("telescope.builtin").diangostics, bufnr, "Show diagnostics for open buffer")
+        lsp_map("gX", require("telescope.builtin").diagnostics, bufnr, "Show diagnostics for open buffer")
 
         -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
