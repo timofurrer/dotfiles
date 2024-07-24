@@ -1,6 +1,13 @@
 -- See https://github.com/nvim-neotest/neotest
 return {
   {
+    -- Only pin it as long as this issue isn't fixed:
+    -- https://github.com/nvim-neotest/neotest/issues/440
+    -- https://github.com/mrcjkb/neotest-haskell/issues/179#issuecomment-2241008192
+    "mrcjkb/neotest-haskell",
+    version = "2.0.0",
+  },
+  {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-neotest/nvim-nio",

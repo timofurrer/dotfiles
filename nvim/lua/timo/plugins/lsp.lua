@@ -37,7 +37,6 @@ return {
           "sqls",
           "tailwindcss",
           "terraformls",
-          "tsserver",
           "yamlls",
         },
       })
@@ -159,6 +158,7 @@ return {
       end
       csslsCfg["capabilities"] = cssCapabilities
 
+      lspconfig["bashls"].setup(defaultCfg)
       lspconfig["clangd"].setup(defaultCfg)
       lspconfig["cssls"].setup(csslsCfg)
       lspconfig["lua_ls"].setup(lualsCfg)
