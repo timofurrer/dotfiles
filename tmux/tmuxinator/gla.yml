@@ -1,6 +1,6 @@
-# /Users/timo/.config/tmuxinator/gitlab-agent.yml
+# /Users/timo/.config/tmuxinator/gla.yml
 
-name: gitlab-agent
+name: main
 root: ~/work/gitlab/gitlab-agent
 
 # Optional tmux socket
@@ -45,13 +45,34 @@ root: ~/work/gitlab/gitlab-agent
 # attach: false
 
 windows:
-  - main:
-      layout: main-vertical
+  - gitlab-agent:
+      layout: 'a77e,393x83,0,0{168x83,0,0[168x66,0,0,46,168x16,0,67,50],136x83,169,0[136x41,169,0,47,136x41,169,42,49],87x83,306,0[87x29,306,0,48,87x26,306,30,51,87x26,306,57,53]}'
       panes:
-        - editor: echo vi
-        - kas: echo run-gdk-kas
-        - agentk: echo run-gdk-agentk
-  # - editor: vi
-  # - test: make test
-  # - kas: run-gdk-kas
-  # - agentk: run-gdk-agentk
+        - editor:
+          - vi
+        - tests:
+          - make test
+        - kas:
+          - sleep 2  # make sure it's only run after `tests`
+          - run-gdk-kas
+        - agentk:
+          - sleep 4  # make sure it's only run after `kas`
+          - run-gdk-agentk
+        - k9s:
+          - export KUBECONTEXT=kind-gitlab-agent-dev
+          - k9s
+        - kubectl-kas:
+          - export KUBECONFIG=~/work/gitlab/gitlab-agent/gdk.kubeconfig
+          - kubectl get pods -A
+        - kubectl:
+          - export KUBECONTEXT=kind-gitlab-agent-dev
+          - kubectl get pods -A
+  - gdk:
+      layout: main-vertical
+      root: ~/work/gitlab/gitlab-development-kit
+      panes:
+        - gitlab:
+          - cd ~/work/gitlab/gitlab-development-kit/gitlab
+        - gdk:
+          - gdk status 
+        

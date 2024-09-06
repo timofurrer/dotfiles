@@ -57,4 +57,5 @@ opt.spell = true
 opt.spelllang = "en_us,de_ch"
 
 -- Concealling
-opt.conceallevel = 1 -- We use this for the obsidian pluign
+-- opt.conceallevel = 1 -- We use this for the obsidian pluign
+opt.conceallevel = 0 -- option (1) sucks because it doesn't show what's there ...

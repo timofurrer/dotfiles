@@ -1,7 +1,7 @@
-# /Users/timo/.config/tmuxinator/gitlab-agent.yml
+# /Users/timo/.config/tmuxinator/work.yml
 
-name: gitlab-agent
-root: ~/work/gitlab/gitlab-agent
+name: work
+root: ~/work
 
 # Optional tmux socket
 # socket_name: foo
@@ -45,13 +45,21 @@ root: ~/work/gitlab/gitlab-agent
 # attach: false
 
 windows:
-  - main:
-      layout: main-vertical
-      panes:
-        - editor: echo vi
-        - kas: echo run-gdk-kas
-        - agentk: echo run-gdk-agentk
-  # - editor: vi
-  # - test: make test
-  # - kas: run-gdk-kas
-  # - agentk: run-gdk-agentk
+  - gitlab-agent:
+      root: ~/work/gitlab/gitlab-agent
+  - opentofu:
+      root: ~/work/gitlab/components/opentofu
+  - provider:
+      root: ~/work/gitlab/terraform-provider-gitlab
+  - glql:
+      root: ~/work/gitlab/glql/gitlab-query-language
+  - gdk:
+      root: ~/work/gitlab/gitlab-development-kit
+  - glab:
+      root: ~/work/gitlab/cli
+  - renovate-bot:
+      root: ~/work/gitlab/renovate-gitlab-bot
+  - go-gitlab:
+      root: ~/work/gitlab/go-gitlab
+  - runbooks:
+      root: ~/work/gitlab/runbooks

@@ -25,8 +25,8 @@ return {
     keys = {
       { "<leader>c", desc = "ChatGPT" },
       { "<leader>cc", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
-      { "<leader>ca", "<cmd>ChatGPTAcAs", desc = "Act as ..." },
-      { "<leader>ce", "<cmd>ChatGPTEditWithInstruction", desc = "Edit with instruction", mode = { "n", "v" }},
+      { "<leader>ca", "<cmd>ChatGPTAcAs<cr>", desc = "Act as ..." },
+      { "<leader>ce", "<cmd>ChatGPTEditWithInstruction<cr>", desc = "Edit with instruction", mode = { "n", "v" }},
       { "<leader>cg", "<cmd>ChatGPTRun grammar_correction<cr>", desc = "Grammar Correction", mode = { "n", "v" } },
       { "<leader>ct", "<cmd>ChatGPTRun translate<cr>", desc = "Translate", mode = { "n", "v" } },
       { "<leader>ck", "<cmd>ChatGPTRun keywords<cr>", desc = "Keywords", mode = { "n", "v" } },

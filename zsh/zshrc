@@ -14,7 +14,7 @@
 #                                #
 ##################################
 
-#: Configure zsh {{{
+#: Configure zsh 
 # Completion
 autoload -Uz compinit
 compinit
@@ -23,9 +23,9 @@ zstyle ':completion:*' menu select
 # History
 setopt no_share_history
 unsetopt share_history
-# }}}
 
-#: zinit bootstrap {{{
+
+#: zinit bootstrap 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -48,9 +48,9 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
     #
 ### End of Zinit's installer chunk
-#: }}}
+#: 
 
-#: Install some basic plugins with zinit {{{
+#: Install some basic plugins with zinit 
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
       zdharma-continuum/fast-syntax-highlighting \
@@ -64,9 +64,9 @@ zinit wait lucid light-mode for \
 
 zinit wait lucid for \
         OMZL::git.zsh \
-#: }}}
+#: 
 
-#: Configure prompt {{{
+#: Configure prompt 
 # required by most themes, so we just set it here
 setopt promptsubst
 # set temporary prompt until theme is loaded
@@ -78,32 +78,37 @@ PS1="[waiting for prompt] READY >"
 #     # OMZT::gnzh # <-- nice alternative theme
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
-#: }}}
+#: 
 
-#: LS colors {{{
+#: LS colors 
 zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 zinit light trapd00r/LS_COLORS
-#: }}}
+#: 
 
-#: Configure fzf {{{
+#: Configure fzf 
 zinit pack"default+keys" for fzf
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#: }}}
+#: 
 
-#: Configure asdf {{{
-. $(brew --prefix asdf)/libexec/asdf.sh
-# ASDF: read go version from go.mod / go.sum file
-export ASDF_GOLANG_MOD_VERSION_ENABLED=true
-#: }}}
+#: Configure asdf 
+# . $(brew --prefix asdf)/libexec/asdf.sh
+# # ASDF: read go version from go.mod / go.sum file
+# export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+# #: 
 
-#: Configure zoxide {{{
+#: Configure mise 
+eval "$(mise activate zsh)"
+eval "$(mise hook-env)"
+#: 
+
+#: Configure zoxide 
 eval "$(zoxide init zsh)"
-#: }}}
+#: 
 
-#: Configure arbitrary tooling {{{
+#: Configure arbitrary tooling 
 # google-cloud-sdk setup
 # source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 # source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
@@ -116,9 +121,9 @@ source $HOME/.config/op/plugins.sh
 export PATH="$PATH:/Users/timo/.local/bin"
 # ghcup
 export PATH="$HOME/.ghcup/bin:$PATH"
-#: }}}
+#: 
 
-#: Configure homebrew-managed tools (e.g. Add them to PATH) {{{
+#: Configure homebrew-managed tools (e.g. Add them to PATH) 
 # curl
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 # GNU sed
@@ -127,17 +132,23 @@ export MANPATH="/opt/homebrew/opt/gnu-sed/libexec/gnuman:$MANPATH"
 # GNU tools > macOS (e.g. ls, ...)
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
-#: }}}
 
-#: Kittens to PATH {{{
+# Workaround for Homebrew tmuxinator issue
+# https://github.com/Homebrew/homebrew-core/issues/59484
+# https://discourse.brew.sh/t/why-does-tmuxinator-sets-gem-home/7296
+unset -v GEM_HOME
+
+#: 
+
+#: Kittens to PATH 
 export PATH="$HOME/.config/kitty/kittens:$PATH"
-#: }}}
+#: 
 
-#: Load aliases {{{
+#: Load aliases 
 source $HOME/dotfiles/zsh/zsh_aliases
 source $HOME/.zshrc_gitlab
-#: }}}
+#: 
 
-#: Load generic completions {{{
+#: Load generic completions 
 source $HOME/.zsh_completions
-#: }}}
+#: 
