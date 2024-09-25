@@ -62,6 +62,8 @@ zinit wait lucid light-mode for \
   blockf atpull'zinit creinstall -q .' \
       zsh-users/zsh-completions
 
+zinit load jimhester/per-directory-history
+
 zinit wait lucid for \
         OMZL::git.zsh \
 #: 
