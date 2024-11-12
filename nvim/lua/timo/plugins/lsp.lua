@@ -34,6 +34,7 @@ return {
           "pyright",
           -- "solargraph", -- For Ruby and especially GitLab development, since they have configs for it.
           "ruby_lsp",
+          "rust_analyzer",
           "sqls",
           "tailwindcss",
           "terraformls",
@@ -175,6 +176,7 @@ return {
       lspconfig["pyright"].setup(defaultCfg)
       -- lspconfig["solargraph"].setup(defaultCfg)
       lspconfig["ruby_lsp"].setup(defaultCfg)
+      lspconfig["rust_analyzer"].setup(defaultCfg)
       lspconfig["sqls"].setup(defaultCfg)
       lspconfig["terraformls"].setup(defaultCfg)
       lspconfig["tailwindcss"].setup(defaultCfg)

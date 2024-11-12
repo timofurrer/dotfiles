@@ -23,3 +23,6 @@ alpine() {
   echo "Running /bin/sh in alpine:$version (cwd is at /app):"
   docker run -it --rm -v $(pwd):/app alpine:$version /bin/sh
 }
+
+# Kubernetes
+alias k=kubectl

@@ -41,6 +41,7 @@ return {
         "query",
         "regex",
         "ruby",
+        "rust",
         "starlark",
         "terraform",
         "typescript",

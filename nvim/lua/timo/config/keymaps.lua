@@ -18,6 +18,7 @@ map("n", "<leader>l", "<cmd>bnext<cr>", "Switch to buffer to the right")
 
 -- Handy stuff
 map("n", "<leader>X", "<cmdopen %<cr><cr>", "Open file under cursor in default app")
+map("n", "<leader>C", ":let @+ = expand('%:p')<CR>:echo 'Copied current file path to system clipboard:' expand('%:p')<CR>", "Copy current file path to system clipboard")
 
 -- Disable arrow keys for now
 map("n", "<Up>", ":echo 'No up for you!'<CR>")

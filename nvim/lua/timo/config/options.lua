@@ -17,6 +17,11 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal shiftwidth=2 tabstop=2 noexpandtab"
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown,proto",
+  command = "command! BufWritePre <buffer> :%s/\\s\\+$//e"
+})
+
 -- Mouse
 opt.mouse = "a" -- Enable mouse mode
 
