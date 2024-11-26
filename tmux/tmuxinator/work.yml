@@ -45,6 +45,10 @@ root: ~/work
 # attach: false
 
 windows:
+  - music:
+      root: ~/work/lowfi
+      panes:
+        - lowfi: cargo run
   - gitlab-agent:
       root: ~/work/gitlab/gitlab-agent
   - opentofu:
