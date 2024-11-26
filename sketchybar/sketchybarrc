@@ -14,7 +14,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 bar=(
   position=left
-  height=40
+  height=60
   shadow=on
   sticky=on
   padding_left=18

@@ -152,6 +152,7 @@ alt-shift-semicolon = 'mode service'
 alt-enter = 'exec-and-forget /opt/homebrew/bin/kitty --single-instance -e tmux'
 alt-t = 'exec-and-forget /opt/homebrew/bin/kitty --single-instance -e tmux'
 alt-a = 'exec-and-forget open -a /Applications/Arc.app/Contents/MacOS/Arc'
+alt-s = 'exec-and-forget open -a /Applications/Slack.app/Contents/MacOS/Slack'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
