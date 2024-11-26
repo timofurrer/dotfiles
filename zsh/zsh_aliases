@@ -7,6 +7,11 @@ alias icat='kitten icat'
 # Copy to Clipboard
 alias cb='pbcopy'
 
+# Aerospace
+ff() {
+    aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+}
+
 # Tmuxinator
 alias tm='tmuxinator'
 alias ts='tmuxinator start'

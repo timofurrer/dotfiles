@@ -27,7 +27,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 80
+accordion-padding = 100
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -149,7 +149,9 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
 
-alt-enter = 'exec-and-forget /opt/homebrew/bin/kitty -e tmux'
+alt-enter = 'exec-and-forget /opt/homebrew/bin/kitty --single-instance -e tmux'
+alt-t = 'exec-and-forget /opt/homebrew/bin/kitty --single-instance -e tmux'
+alt-a = 'exec-and-forget open -a /Applications/Arc.app/Contents/MacOS/Arc'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
