@@ -17,6 +17,9 @@
 [includeIf "gitdir:~/work/gitlab/"]
 	path = ~/.gitlab.gitconfig
 
+[includeIf "gitdir:~/work/gitlab/gitlab-development-kit/gdk-repos"]
+	path = ~/.gdk.gitconfig
+
 [init]
 	defaultBranch = main
 
@@ -41,6 +44,7 @@
 [core]
 	pager = delta
 	editor = nvim
+	fsmonitor = true
 
 [interactive]
 	diffFilter = delta --color-only
@@ -66,3 +70,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[feature]
+	manyFiles = true
+[maintenance]
+	repo = /Users/timo/work/gitlab/gitlab-development-kit

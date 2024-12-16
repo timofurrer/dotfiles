@@ -29,5 +29,18 @@ alpine() {
   docker run -it --rm -v $(pwd):/app alpine:$version /bin/sh
 }
 
+# Launch debian container with current working directory mounted to /app
+debian() {
+  local version
+  version="$1"
+
+  if [ -z "$version" ]; then
+    version=latest
+  fi
+
+  echo "Running /bin/bash in debian:$version (cwd is at /app):"
+  docker run -it --rm -v $(pwd):/app debian:$version /bin/bash
+}
+
 # Kubernetes
 alias k=kubectl
