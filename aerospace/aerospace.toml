@@ -120,6 +120,7 @@ alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
 alt-w = 'close'
+alt-c = 'close'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -155,8 +156,8 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 alt-r = 'mode resize'
 
-alt-enter = 'exec-and-forget /opt/homebrew/bin/kitty --single-instance -e tmux'
-alt-t = 'exec-and-forget /opt/homebrew/bin/kitty --single-instance -e tmux'
+alt-enter = 'exec-and-forget open --new -a /Applications/Ghostty.app/Contents/MacOS/ghostty'
+alt-t = 'exec-and-forget open --new -a /Applications/Ghostty.app/Contents/MacOS/ghostty'
 alt-a = 'exec-and-forget open -a /Applications/Arc.app/Contents/MacOS/Arc'
 alt-s = 'exec-and-forget open -a /Applications/Slack.app/Contents/MacOS/Slack'
 
