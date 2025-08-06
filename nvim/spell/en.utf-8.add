@@ -75,3 +75,7 @@ Prepanded
 Prepend
 scalability
 AutoFlow
+cardinality
+rollouts
+featureflag
+allowlist

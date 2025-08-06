@@ -1,10 +1,12 @@
 return {
   {
     "williamboman/mason.nvim",
+    version = "1.11.0",
     opts = {},
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    version = "1.32.0",
     dependencies = {
       { "williamboman/mason.nvim" },
     },
@@ -18,13 +20,14 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "bashls",
+          "buf_ls",
           "clangd",
           "cssls",
           "lua_ls",
           "golangci_lint_ls",
           "gopls",
           "helm_ls",
-          "hls",
+          -- "hls",
           "html",
           -- "htmx", -- err'ed last time I wanted to try it out ...
           "jsonls",
@@ -114,6 +117,12 @@ return {
         },
       }
 
+      local clangdCfg = {}
+      for k, v in pairs(defaultCfg) do
+        clangdCfg[k] = v
+      end
+      clangdCfg["filetypes"] = { "c", "cpp", "objc", "objcpp", "cuda" } -- exclude "proto".
+
       local yamllsCfg = {}
       for k, v in pairs(defaultCfg) do
         yamllsCfg[k] = v
@@ -160,13 +169,14 @@ return {
       csslsCfg["capabilities"] = cssCapabilities
 
       lspconfig["bashls"].setup(defaultCfg)
-      lspconfig["clangd"].setup(defaultCfg)
+      lspconfig["buf_ls"].setup(defaultCfg)
+      lspconfig["clangd"].setup(clangdCfg)
       lspconfig["cssls"].setup(csslsCfg)
       lspconfig["lua_ls"].setup(lualsCfg)
       lspconfig["golangci_lint_ls"].setup(defaultCfg)
       lspconfig["gopls"].setup(defaultCfg)
       lspconfig["helm_ls"].setup(helmlsCfg)
-      lspconfig["hls"].setup(defaultCfg)
+      -- lspconfig["hls"].setup(defaultCfg)
       lspconfig["html"].setup(htmlCfg)
       -- lspconfig["htmx"].setup(defaultCfg)
       lspconfig["jsonls"].setup(defaultCfg)
@@ -181,6 +191,10 @@ return {
       lspconfig["terraformls"].setup(defaultCfg)
       lspconfig["tailwindcss"].setup(defaultCfg)
       lspconfig["yamlls"].setup(yamllsCfg)
+
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "rounded",
+      })
     end,
   },
 }
