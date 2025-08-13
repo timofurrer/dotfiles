@@ -4,7 +4,6 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-      -- theme = 'tokyonight',
       theme = "edelweiss",
       sections = {
         lualine_c = {
@@ -14,7 +13,7 @@ return {
             function()
               local msg = "No Active Lsp"
               local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-              local clients = vim.lsp.get_active_clients({bufnr = 0})
+              local clients = vim.lsp.get_clients({bufnr = 0})
               if next(clients) == nil then
                 return msg
               end

@@ -38,6 +38,7 @@ return {
           -- "solargraph", -- For Ruby and especially GitLab development, since they have configs for it.
           "ruby_lsp",
           "rust_analyzer",
+          "starlark_rust",
           "sqls",
           "tailwindcss",
           "terraformls",
@@ -188,6 +189,7 @@ return {
       lspconfig["ruby_lsp"].setup(defaultCfg)
       lspconfig["rust_analyzer"].setup(defaultCfg)
       lspconfig["sqls"].setup(defaultCfg)
+      lspconfig["starlark_rust"].setup(defaultCfg)
       lspconfig["terraformls"].setup(defaultCfg)
       lspconfig["tailwindcss"].setup(defaultCfg)
       lspconfig["yamlls"].setup(yamllsCfg)
@@ -197,4 +199,11 @@ return {
       })
     end,
   },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>k", function() require("lsp_signature").toggle_float_win() end, desc = "Toggle Signature" },
+    },
+  }
 }
