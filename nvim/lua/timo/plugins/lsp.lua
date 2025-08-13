@@ -201,7 +201,8 @@ return {
   },
   {
     "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
+    event = "InsertEnter",
+    opts = {},
     keys = {
       { "<leader>k", function() require("lsp_signature").toggle_float_win() end, desc = "Toggle Signature" },
     },
