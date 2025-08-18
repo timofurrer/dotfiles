@@ -1,5 +1,8 @@
-local map = function(mode, lhs, rhs, desc)
-  vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc })
+local map = function(mode, lhs, rhs, desc, silent)
+  if silent == nil then
+    silent = true
+  end
+  vim.keymap.set(mode, lhs, rhs, { silent = silent, desc = desc })
 end
 
 -- Lazy
@@ -21,6 +24,14 @@ map("n", "<leader>X", "<cmdopen %<cr><cr>", "Open file under cursor in default a
 map("n", "<leader>C", ":let @+ = expand('%:p')<CR>:echo 'Copied current file path to system clipboard:' expand('%:p')<CR>", "Copy current file path to system clipboard")
 map("v", "<leader>y", '"+y', "Copy selected lines to system clipboard")
 
+local function copyClipboard(filepath)
+  vim.fn.setreg('+', filepath) -- write to clipboard register
+  print(string.format('Copied %s to clipboard', filepath))
+end
+
+map("n", "<leader>cp", function() copyClipboard(vim.fn.expand('%')) end, "Copy relative path of current buffer")
+map("n", "<leader>cP", function() copyClipboard(vim.fn.expand('%:p')) end, "Copy absolute path of current buffer")
+
 -- Disable arrow keys for now
 map("n", "<Up>", ":echo 'No up for you!'<CR>")
 map("v", "<Up>", ":<C-u>echo 'No up for you!'<CR>")
@@ -40,4 +51,3 @@ map("i", "<Home>", "<C-o>:echo 'No home for you!'<CR>")
 map("n", "<End>", ":echo 'No end for you!'<CR>")
 map("v", "<End>", ":<C-u>echo 'No end for you!'<CR>")
 map("i", "<End>", "<C-o>:echo 'No end for you!'<CR>")
-
