@@ -104,7 +104,6 @@ return {
         on_attach = on_attach,
         capabilities = capabilities,
       }
-      local lspconfig = require("lspconfig")
 
       local helmlsCfg = {}
       for k, v in pairs(defaultCfg) do
@@ -169,34 +168,56 @@ return {
       end
       csslsCfg["capabilities"] = cssCapabilities
 
-      lspconfig["bashls"].setup(defaultCfg)
-      lspconfig["buf_ls"].setup(defaultCfg)
-      lspconfig["clangd"].setup(clangdCfg)
-      lspconfig["cssls"].setup(csslsCfg)
-      lspconfig["lua_ls"].setup(lualsCfg)
-      lspconfig["golangci_lint_ls"].setup(defaultCfg)
-      lspconfig["gopls"].setup(defaultCfg)
-      lspconfig["helm_ls"].setup(helmlsCfg)
+      vim.lsp.config("bashls", defaultCfg)
+      vim.lsp.config("buf_ls", defaultCfg)
+      vim.lsp.config("clangd", clangdCfg)
+      vim.lsp.config("cssls", csslsCfg)
+      vim.lsp.config("lua_ls", lualsCfg)
+      vim.lsp.config("golangci_lint_ls", defaultCfg)
+      vim.lsp.config("gopls", defaultCfg)
+      vim.lsp.config("helm_ls", helmlsCfg)
       -- lspconfig["hls"].setup(defaultCfg)
-      lspconfig["html"].setup(htmlCfg)
+      vim.lsp.config("html", htmlCfg)
       -- lspconfig["htmx"].setup(defaultCfg)
-      lspconfig["jsonls"].setup(defaultCfg)
-      lspconfig["jsonnet_ls"].setup(defaultCfg)
-      lspconfig["marksman"].setup(defaultCfg)
-      lspconfig["pylsp"].setup(defaultCfg)
-      lspconfig["pyright"].setup(defaultCfg)
+      vim.lsp.config("jsonls", defaultCfg)
+      vim.lsp.config("jsonnet_ls", defaultCfg)
+      vim.lsp.config("marksman", defaultCfg)
+      vim.lsp.config("pylsp", defaultCfg)
+      vim.lsp.config("pyright", defaultCfg)
       -- lspconfig["solargraph"].setup(defaultCfg)
-      lspconfig["ruby_lsp"].setup(defaultCfg)
-      lspconfig["rust_analyzer"].setup(defaultCfg)
-      lspconfig["sqls"].setup(defaultCfg)
-      lspconfig["starlark_rust"].setup(defaultCfg)
-      lspconfig["terraformls"].setup(defaultCfg)
-      lspconfig["tailwindcss"].setup(defaultCfg)
-      lspconfig["yamlls"].setup(yamllsCfg)
+      vim.lsp.config("ruby_lsp", defaultCfg)
+      vim.lsp.config("rust_analyzer", defaultCfg)
+      vim.lsp.config("sqls", defaultCfg)
+      vim.lsp.config("starlark_rust", defaultCfg)
+      vim.lsp.config("terraformls", defaultCfg)
+      vim.lsp.config("tailwindcss", defaultCfg)
+      vim.lsp.config("yamlls", yamllsCfg)
 
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
         border = "rounded",
       })
+
+      vim.lsp.enable("bashls")
+      vim.lsp.enable("buf_ls")
+      vim.lsp.enable("clangd")
+      vim.lsp.enable("cssls")
+      vim.lsp.enable("lua_ls")
+      vim.lsp.enable("golangci_lint_ls")
+      vim.lsp.enable("gopls")
+      vim.lsp.enable("helm_ls")
+      vim.lsp.enable("html")
+      vim.lsp.enable("jsonls")
+      vim.lsp.enable("jsonnet_ls")
+      vim.lsp.enable("marksman")
+      vim.lsp.enable("pylsp")
+      vim.lsp.enable("pyright")
+      vim.lsp.enable("ruby_lsp")
+      vim.lsp.enable("rust_analyzer")
+      vim.lsp.enable("starlark_rust")
+      vim.lsp.enable("sqls")
+      vim.lsp.enable("tailwindcss")
+      vim.lsp.enable("terraformls")
+      vim.lsp.enable("yamlls")
     end,
   },
   {

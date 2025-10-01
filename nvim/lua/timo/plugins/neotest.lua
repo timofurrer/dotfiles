@@ -32,6 +32,9 @@ return {
             end,
           })
         },
+        floating = {
+          border = "rounded",
+        },
       }
     end,
     config = function(_, opts)

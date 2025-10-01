@@ -45,25 +45,35 @@ root: ~/work
 # attach: false
 
 windows:
-  - music:
-      root: ~/work/lowfi
-      panes:
-        - lowfi: cargo run
-  - gitlab-agent:
-      root: ~/work/gitlab/gitlab-agent
-  - opentofu:
-      root: ~/work/gitlab/components/opentofu
-  - provider:
-      root: ~/work/gitlab/terraform-provider-gitlab
-  - glql:
-      root: ~/work/gitlab/glql/gitlab-query-language
   - gdk:
       root: ~/work/gitlab/gitlab-development-kit
-  - glab:
+      layout: main-horizontal
+      panes:
+        - gitlab:
+            - cd ~/work/gitlab/gitlab-development-kit/gitlab
+        - gdk:
+            - gdk status
+  - gitlab-agent:
+      root: ~/work/gitlab/gitlab-agent
+  - gitlab-runner:
+      root: ~/work/gitlab/gitlab-runner
+  - opentofu:
+      root: ~/work/gitlab/components/opentofu
+  - client-go:
+      root: ~/work/gitlab/api/client-go
+  - cli:
       root: ~/work/gitlab/cli
-  - renovate-bot:
+  - provider:
+      root: ~/work/gitlab/terraform-provider-gitlab
+  - renovate:
       root: ~/work/gitlab/renovate-gitlab-bot
-  - go-gitlab:
-      root: ~/work/gitlab/go-gitlab
+  - gitlab-iac:
+      layout: main-horizontal
+      root: ~/work/gitlab/renovate-gitlab-bot
+      panes:
+        - infra-mgmt:
+            - cd ~/work/gitlab/infra-mgmt
+        - config-mgmt:
+            - cd ~/work/gitlab/config-mgmt
   - runbooks:
       root: ~/work/gitlab/runbooks
