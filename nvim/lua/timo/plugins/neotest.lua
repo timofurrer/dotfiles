@@ -15,7 +15,10 @@ return {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       -- Test Runners
-      "fredrikaverpil/neotest-golang",
+      {
+        "fredrikaverpil/neotest-golang",
+        branch = "testify/output",
+      },
       "mrcjkb/neotest-haskell",
       "olimorris/neotest-rspec",
       -- DAP
@@ -24,7 +27,9 @@ return {
     opts = function()
       return {
         adapters = {
-          require("neotest-golang")({}),
+          require("neotest-golang")({
+            testify_enabled = true,
+          }),
           require("neotest-haskell"),
           require("neotest-rspec")({
             rspec_cmd = function()

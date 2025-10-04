@@ -21,7 +21,11 @@ require("lazy").setup({
   spec = {
     { import = "timo.colorschemes" },
     { import = "timo.plugins" },
-  }
+  },
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
 })
 
 -- Load configuration

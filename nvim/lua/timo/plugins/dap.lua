@@ -94,7 +94,6 @@ return {
       -- DAP UI enhancements
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
-      "nvim-telescope/telescope-dap.nvim",
     },
     ft = { "go", "ruby" },
     opts = {},
@@ -149,22 +148,6 @@ return {
     dependencies = { "mfussenegger/nvim-dap" },
     ft = { "go", "ruby" },
     opts = {},
-  },
-  {
-    "nvim-telescope/telescope-dap.nvim",
-    ft = { "go", "ruby" },
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("telescope").load_extension("dap")
-    end,
-    keys = {
-      { "<leader>dtb", function() require("telescope").extensions.dap.list_breakpoints() end, desc = "List all breakpoints" },
-      { "<leader>dtv", function() require("telescope").extensions.dap.variables() end,        desc = "List all variables" },
-      { "<leader>dtf", function() require("telescope").extensions.dap.frames() end,           desc = "List all frames" },
-    }
   },
   -- Adapters
   {
