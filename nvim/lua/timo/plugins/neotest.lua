@@ -17,7 +17,6 @@ return {
       -- Test Runners
       {
         "fredrikaverpil/neotest-golang",
-        branch = "testify/output",
       },
       "mrcjkb/neotest-haskell",
       "olimorris/neotest-rspec",

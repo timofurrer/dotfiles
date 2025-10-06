@@ -20,6 +20,13 @@ return {
         rg_glob = true,
       },
     },
+    config = function (_, opts)
+      local fzfLua = require("fzf-lua")
+      fzfLua.setup(opts)
+
+      -- use `fzf-lua` for replace vim.ui.select
+      fzfLua.register_ui_select()
+    end,
     keys = {
       { "<leader><leader>", function() require("fzf-lua").files() end,                 desc = "Find Files" },
       { "<leader>fo",       function() require("fzf-lua").oldfiles() end,              desc = "Find in opened files history" },
